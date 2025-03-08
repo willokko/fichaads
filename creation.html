@@ -29,11 +29,11 @@
                 <h2>🎭 Informações Básicas</h2>
                 <div class="form-group">
                     <label for="charName">Nome 🏷️</label>
-                    <input type="text" id="charName" name="charName" required>
+                    <input type="text" id="charName" name="charName" class="character-input" required>
                 </div>
                 <div class="form-group">
                     <label for="charRace">Raça/Espécie 🐉</label>
-                    <select id="charRace" name="charRace" required>
+                    <select id="charRace" name="charRace" class="character-input" required>
                         <option value="">Selecione uma raça</option>
                         <option value="humano">Humano</option>
                         <option value="elfo">Elfo</option>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <label for="charClass">Classe/Profissão ⚔️</label>
-                    <select id="charClass" name="charClass" required>
+                    <select id="charClass" name="charClass" class="character-input" required>
                         <option value="">Selecione uma classe</option>
                         <option value="guerreiro">Guerreiro</option>
                         <option value="mago">Mago</option>
@@ -149,6 +149,14 @@
         </form>
     </main>
 
-    <script src="script.js"></script>
+    <!-- Preview do personagem -->
+    <div id="characterPreview"></div>
+
+    <!-- Lista de personagens -->
+    <div id="charactersList"></div>
+
+    <script type="module">
+        import { CharacterCreation, loadCharacters } from './creation.js';
+    </script>
 </body>
 </html>
