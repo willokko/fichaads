@@ -134,23 +134,124 @@ window.viewCharacterDetails = function(index) {
                 <div class="modal-content">
                     <div class="modal-header bg-${getClassColor(char.classe)} text-white">
                         <h5 class="modal-title">${char.nome || 'Sem nome'}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
+                    <div class="modal-body bg-light">
+                        <div class="row g-4">
                             <div class="col-md-6">
-                                <h6>Informações Básicas</h6>
-                                <p>Idade: ${char.idade || 'N/A'} anos</p>
-                                <p>Gênero: ${char.genero || 'N/A'}</p>
-                                <p>Altura: ${char.altura || 'N/A'}cm</p>
-                                <p>Peso: ${char.peso || 'N/A'}kg</p>
+                                <div class="card h-100">
+                                    <div class="card-header bg-dark text-white">
+                                        <h6 class="mb-0"><i class="fas fa-user-circle"></i> Informações Básicas</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <strong class="text-dark">Idade:</strong>
+                                                <span class="text-secondary">${char.idade || 'N/A'} anos</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <strong class="text-dark">Gênero:</strong>
+                                                <span class="text-secondary">${char.genero || 'N/A'}</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <strong class="text-dark">Altura:</strong>
+                                                <span class="text-secondary">${char.altura || 'N/A'}cm</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <strong class="text-dark">Peso:</strong>
+                                                <span class="text-secondary">${char.peso || 'N/A'}kg</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <h6>História</h6>
-                                <p>Alinhamento: ${char.historia?.alinhamento || 'N/A'}</p>
-                                <p>Background: ${char.historia?.background || 'N/A'}</p>
-                                <p>Motivação: ${char.historia?.motivacao || 'N/A'}</p>
-                                <p>Fraquezas: ${char.historia?.fraquezas || 'N/A'}</p>
+                                <div class="card h-100">
+                                    <div class="card-header bg-dark text-white">
+                                        <h6 class="mb-0"><i class="fas fa-book-open"></i> História</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <strong class="text-dark d-block mb-1">Alinhamento:</strong>
+                                                <span class="text-secondary">${char.historia?.alinhamento || 'N/A'}</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong class="text-dark d-block mb-1">Background:</strong>
+                                                <span class="text-secondary">${char.historia?.background || 'N/A'}</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong class="text-dark d-block mb-1">Motivação:</strong>
+                                                <span class="text-secondary">${char.historia?.motivacao || 'N/A'}</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <strong class="text-dark d-block mb-1">Fraquezas:</strong>
+                                                <span class="text-secondary">${char.historia?.fraquezas || 'N/A'}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-dark text-white">
+                                        <h6 class="mb-0"><i class="fas fa-dice-d20"></i> Atributos e Combate</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h6 class="text-dark mb-3">Atributos</h6>
+                                                <div class="attributes-grid-modal">
+                                                    <div class="attribute-item">
+                                                        <span class="badge bg-secondary mb-1">FOR</span>
+                                                        <span class="text-dark">${char.atributos?.forca || 10} (${formatarModificador(char.atributos?.forca || 10)})</span>
+                                                    </div>
+                                                    <div class="attribute-item">
+                                                        <span class="badge bg-secondary mb-1">DES</span>
+                                                        <span class="text-dark">${char.atributos?.destreza || 10} (${formatarModificador(char.atributos?.destreza || 10)})</span>
+                                                    </div>
+                                                    <div class="attribute-item">
+                                                        <span class="badge bg-secondary mb-1">CON</span>
+                                                        <span class="text-dark">${char.atributos?.constituicao || 10} (${formatarModificador(char.atributos?.constituicao || 10)})</span>
+                                                    </div>
+                                                    <div class="attribute-item">
+                                                        <span class="badge bg-secondary mb-1">INT</span>
+                                                        <span class="text-dark">${char.atributos?.inteligencia || 10} (${formatarModificador(char.atributos?.inteligencia || 10)})</span>
+                                                    </div>
+                                                    <div class="attribute-item">
+                                                        <span class="badge bg-secondary mb-1">SAB</span>
+                                                        <span class="text-dark">${char.atributos?.sabedoria || 10} (${formatarModificador(char.atributos?.sabedoria || 10)})</span>
+                                                    </div>
+                                                    <div class="attribute-item">
+                                                        <span class="badge bg-secondary mb-1">CAR</span>
+                                                        <span class="text-dark">${char.atributos?.carisma || 10} (${formatarModificador(char.atributos?.carisma || 10)})</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="text-dark mb-3">Combate</h6>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-heart text-danger"></i> Pontos de Vida</span>
+                                                        <span class="badge bg-danger">${char.combate?.pontosVida || 0}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-fire-alt text-primary"></i> Pontos de Mana</span>
+                                                        <span class="badge bg-primary">${char.combate?.pontosMana || 0}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-shield-alt text-success"></i> Defesa</span>
+                                                        <span class="badge bg-success">${char.combate?.defesa || 0}</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <span><i class="fas fa-bolt text-warning"></i> Iniciativa</span>
+                                                        <span class="badge bg-warning">${char.combate?.iniciativa || 0}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

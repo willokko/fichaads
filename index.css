@@ -151,3 +151,63 @@ body {
 #noCharactersMessage p {
     color: #495057;
 }
+
+/* Estilos para o modal de detalhes */
+.attributes-grid-modal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.attribute-item {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal .card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.modal .card-header {
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.modal .list-group-item {
+    border-left: none;
+    border-right: none;
+}
+
+.modal .badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.7em;
+}
+
+.modal .text-secondary {
+    color: #6c757d !important;
+}
+
+.modal .text-dark {
+    color: #212529 !important;
+}
+
+.modal-header .btn-close-white {
+    filter: brightness(0) invert(1);
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .attributes-grid-modal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
