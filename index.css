@@ -108,44 +108,62 @@ body {
 
 .attribute {
     text-align: center;
-    background-color: #f8f9fa;
-    padding: 0.5rem;
+    background-color: rgba(255,255,255,0.1);
+    padding: 0.8rem;
     border-radius: 4px;
+    color: #ecf0f1;
 }
 
 .attribute-label {
-    font-weight: bold;
-    color: #6c757d;
+    font-weight: 600;
+    color: #bdc3c7;
     display: block;
     font-size: 0.9rem;
 }
 
 .attribute-value {
     font-size: 0.9rem;
+    color: #ecf0f1;
+    font-weight: 500;
 }
 
 .card {
     transition: transform 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.card-body {
+    background: #34495e;
+    color: #ecf0f1;
 }
 
 .card-header {
-    border-bottom: 2px solid rgba(0,0,0,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    background: #2c3e50;
+    color: #ffffff;
 }
 
 .combat-info {
-    background-color: #f8f9fa;
-    padding: 0.5rem;
+    background-color: rgba(255,255,255,0.1);
+    padding: 0.8rem;
     border-radius: 4px;
+    color: #ecf0f1;
 }
 
 .combat-info i {
     width: 20px;
     text-align: center;
+}
+
+.character-info {
+    color: #ecf0f1;
 }
 
 .character-info .badge {
@@ -159,19 +177,20 @@ body {
 }
 
 #noCharactersMessage {
-    background-color: #f8f9fa;
+    background-color: #34495e;
     border-radius: 8px;
     padding: 2rem;
     text-align: center;
+    color: #ecf0f1;
 }
 
 #noCharactersMessage h3 {
-    color: #6c757d;
+    color: #ecf0f1;
     margin-bottom: 1rem;
 }
 
 #noCharactersMessage p {
-    color: #495057;
+    color: #bdc3c7;
 }
 
 /* Estilos para o modal de detalhes */
@@ -194,6 +213,8 @@ body {
 
 .modal-body {
     padding: 1.5rem;
+    background: #34495e;
+    color: #ecf0f1;
 }
 
 .modal .card {
@@ -216,11 +237,11 @@ body {
 }
 
 .modal .text-secondary {
-    color: #6c757d !important;
+    color: #bdc3c7 !important;
 }
 
 .modal .text-dark {
-    color: #212529 !important;
+    color: #ecf0f1 !important;
 }
 
 .modal-header .btn-close-white {
@@ -236,14 +257,16 @@ body {
 
 /* Estilos para o formulário de edição no modal */
 .character-edit-form .form-label {
-    color: #2c3e50;
+    color: #ecf0f1;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
 .character-edit-form .form-control,
 .character-edit-form .form-select {
-    border: 1px solid #dce4ec;
+    background-color: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #ecf0f1;
     border-radius: 4px;
     padding: 0.5rem;
     transition: all 0.3s ease;
@@ -251,32 +274,46 @@ body {
 
 .character-edit-form .form-control:focus,
 .character-edit-form .form-select:focus {
+    background-color: #2c3e50;
     border-color: #3498db;
     box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    color: #ecf0f1;
 }
 
-.character-edit-form textarea.form-control {
-    resize: vertical;
-    min-height: 60px;
+.character-edit-form .form-control::placeholder {
+    color: #95a5a6;
+}
+
+.character-edit-form .form-select option {
+    background-color: #2c3e50;
+    color: #ecf0f1;
 }
 
 .character-edit-form .card {
+    background: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
 }
 
 .character-edit-form .card-header {
     padding: 0.75rem 1rem;
+    background: #2c3e50;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #ecf0f1;
 }
 
 .character-edit-form .card-body {
     padding: 1.25rem;
+    background: #34495e;
+    color: #ecf0f1;
 }
 
 .modal-content {
-    border: none;
+    background: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
@@ -285,6 +322,8 @@ body {
 }
 
 .modal-footer {
+    background: #2c3e50;
+    border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     padding: 1rem;
@@ -299,4 +338,26 @@ body {
     .character-edit-form .card {
         margin-bottom: 1rem;
     }
+}
+
+/* Ajustes para melhor legibilidade */
+.text-dark {
+    color: #ecf0f1 !important;
+}
+
+.text-secondary {
+    color: #bdc3c7 !important;
+}
+
+.list-group-item {
+    background-color: #34495e;
+    border-color: rgba(255,255,255,0.1);
+    color: #ecf0f1;
+}
+
+/* Alertas e mensagens */
+.alert-success {
+    background-color: rgba(46, 204, 113, 0.2);
+    border-color: rgba(46, 204, 113, 0.3);
+    color: #2ecc71;
 }
