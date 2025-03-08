@@ -137,123 +137,153 @@ window.viewCharacterDetails = function(index) {
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body bg-light">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-header bg-dark text-white">
-                                        <h6 class="mb-0"><i class="fas fa-user-circle"></i> Informações Básicas</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item d-flex justify-content-between">
-                                                <strong class="text-dark">Idade:</strong>
-                                                <span class="text-secondary">${char.idade || 'N/A'} anos</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between">
-                                                <strong class="text-dark">Gênero:</strong>
-                                                <span class="text-secondary">${char.genero || 'N/A'}</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between">
-                                                <strong class="text-dark">Altura:</strong>
-                                                <span class="text-secondary">${char.altura || 'N/A'}cm</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between">
-                                                <strong class="text-dark">Peso:</strong>
-                                                <span class="text-secondary">${char.peso || 'N/A'}kg</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-header bg-dark text-white">
-                                        <h6 class="mb-0"><i class="fas fa-book-open"></i> História</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <strong class="text-dark d-block mb-1">Alinhamento:</strong>
-                                                <span class="text-secondary">${char.historia?.alinhamento || 'N/A'}</span>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <strong class="text-dark d-block mb-1">Background:</strong>
-                                                <span class="text-secondary">${char.historia?.background || 'N/A'}</span>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <strong class="text-dark d-block mb-1">Motivação:</strong>
-                                                <span class="text-secondary">${char.historia?.motivacao || 'N/A'}</span>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <strong class="text-dark d-block mb-1">Fraquezas:</strong>
-                                                <span class="text-secondary">${char.historia?.fraquezas || 'N/A'}</span>
-                                            </li>
-                                        </ul>
+                        <form id="editCharacterForm${index}" class="character-edit-form">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-dark text-white">
+                                            <h6 class="mb-0"><i class="fas fa-user-circle"></i> Informações Básicas</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">Nome:</label>
+                                                <input type="text" class="form-control" name="nome" value="${char.nome}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Raça:</label>
+                                                <select class="form-select" name="raca" required>
+                                                    <option value="humano" ${char.raca === 'humano' ? 'selected' : ''}>Humano</option>
+                                                    <option value="elfo" ${char.raca === 'elfo' ? 'selected' : ''}>Elfo</option>
+                                                    <option value="anao" ${char.raca === 'anao' ? 'selected' : ''}>Anão</option>
+                                                    <option value="orc" ${char.raca === 'orc' ? 'selected' : ''}>Orc</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Classe:</label>
+                                                <select class="form-select" name="classe" required>
+                                                    <option value="guerreiro" ${char.classe === 'guerreiro' ? 'selected' : ''}>Guerreiro</option>
+                                                    <option value="mago" ${char.classe === 'mago' ? 'selected' : ''}>Mago</option>
+                                                    <option value="ladino" ${char.classe === 'ladino' ? 'selected' : ''}>Ladino</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Idade:</label>
+                                                <input type="number" class="form-control" name="idade" value="${char.idade}" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Gênero:</label>
+                                                <input type="text" class="form-control" name="genero" value="${char.genero}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Altura (cm):</label>
+                                                <input type="number" class="form-control" name="altura" value="${char.altura}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Peso (kg):</label>
+                                                <input type="number" class="form-control" name="peso" value="${char.peso}">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header bg-dark text-white">
-                                        <h6 class="mb-0"><i class="fas fa-dice-d20"></i> Atributos e Combate</h6>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-dark text-white">
+                                            <h6 class="mb-0"><i class="fas fa-dice-d20"></i> Atributos</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">Força:</label>
+                                                <input type="number" class="form-control" name="forca" value="${char.atributos.forca}" min="1" max="20" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Destreza:</label>
+                                                <input type="number" class="form-control" name="destreza" value="${char.atributos.destreza}" min="1" max="20" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Constituição:</label>
+                                                <input type="number" class="form-control" name="constituicao" value="${char.atributos.constituicao}" min="1" max="20" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Inteligência:</label>
+                                                <input type="number" class="form-control" name="inteligencia" value="${char.atributos.inteligencia}" min="1" max="20" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Sabedoria:</label>
+                                                <input type="number" class="form-control" name="sabedoria" value="${char.atributos.sabedoria}" min="1" max="20" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Carisma:</label>
+                                                <input type="number" class="form-control" name="carisma" value="${char.atributos.carisma}" min="1" max="20" required>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h6 class="text-dark mb-3">Atributos</h6>
-                                                <div class="attributes-grid-modal">
-                                                    <div class="attribute-item">
-                                                        <span class="badge bg-secondary mb-1">FOR</span>
-                                                        <span class="text-dark">${char.atributos?.forca || 10} (${formatarModificador(char.atributos?.forca || 10)})</span>
+                                </div>
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header bg-dark text-white">
+                                            <h6 class="mb-0"><i class="fas fa-shield-alt"></i> Combate</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Pontos de Vida:</label>
+                                                        <input type="number" class="form-control" name="pontosVida" value="${char.combate.pontosVida}" required>
                                                     </div>
-                                                    <div class="attribute-item">
-                                                        <span class="badge bg-secondary mb-1">DES</span>
-                                                        <span class="text-dark">${char.atributos?.destreza || 10} (${formatarModificador(char.atributos?.destreza || 10)})</span>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Pontos de Mana:</label>
+                                                        <input type="number" class="form-control" name="pontosMana" value="${char.combate.pontosMana}" required>
                                                     </div>
-                                                    <div class="attribute-item">
-                                                        <span class="badge bg-secondary mb-1">CON</span>
-                                                        <span class="text-dark">${char.atributos?.constituicao || 10} (${formatarModificador(char.atributos?.constituicao || 10)})</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Defesa:</label>
+                                                        <input type="number" class="form-control" name="defesa" value="${char.combate.defesa}" required>
                                                     </div>
-                                                    <div class="attribute-item">
-                                                        <span class="badge bg-secondary mb-1">INT</span>
-                                                        <span class="text-dark">${char.atributos?.inteligencia || 10} (${formatarModificador(char.atributos?.inteligencia || 10)})</span>
-                                                    </div>
-                                                    <div class="attribute-item">
-                                                        <span class="badge bg-secondary mb-1">SAB</span>
-                                                        <span class="text-dark">${char.atributos?.sabedoria || 10} (${formatarModificador(char.atributos?.sabedoria || 10)})</span>
-                                                    </div>
-                                                    <div class="attribute-item">
-                                                        <span class="badge bg-secondary mb-1">CAR</span>
-                                                        <span class="text-dark">${char.atributos?.carisma || 10} (${formatarModificador(char.atributos?.carisma || 10)})</span>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Iniciativa:</label>
+                                                        <input type="number" class="form-control" name="iniciativa" value="${char.combate.iniciativa}" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <h6 class="text-dark mb-3">Combate</h6>
-                                                <ul class="list-group">
-                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                        <span><i class="fas fa-heart text-danger"></i> Pontos de Vida</span>
-                                                        <span class="badge bg-danger">${char.combate?.pontosVida || 0}</span>
-                                                    </li>
-                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                        <span><i class="fas fa-fire-alt text-primary"></i> Pontos de Mana</span>
-                                                        <span class="badge bg-primary">${char.combate?.pontosMana || 0}</span>
-                                                    </li>
-                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                        <span><i class="fas fa-shield-alt text-success"></i> Defesa</span>
-                                                        <span class="badge bg-success">${char.combate?.defesa || 0}</span>
-                                                    </li>
-                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                        <span><i class="fas fa-bolt text-warning"></i> Iniciativa</span>
-                                                        <span class="badge bg-warning">${char.combate?.iniciativa || 0}</span>
-                                                    </li>
-                                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header bg-dark text-white">
+                                            <h6 class="mb-0"><i class="fas fa-book"></i> História</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <label class="form-label">Background:</label>
+                                                <textarea class="form-control" name="background" rows="3">${char.historia.background}</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Alinhamento:</label>
+                                                <select class="form-select" name="alinhamento">
+                                                    <option value="bom" ${char.historia.alinhamento === 'bom' ? 'selected' : ''}>Bom</option>
+                                                    <option value="neutro" ${char.historia.alinhamento === 'neutro' ? 'selected' : ''}>Neutro</option>
+                                                    <option value="maligno" ${char.historia.alinhamento === 'maligno' ? 'selected' : ''}>Maligno</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Motivação:</label>
+                                                <textarea class="form-control" name="motivacao" rows="2">${char.historia.motivacao}</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Fraquezas:</label>
+                                                <textarea class="form-control" name="fraquezas" rows="2">${char.historia.fraquezas}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="saveCharacterEdit(${index})">Salvar Alterações</button>
                     </div>
                 </div>
             </div>
@@ -271,6 +301,67 @@ window.viewCharacterDetails = function(index) {
     document.getElementById(`characterModal${index}`).addEventListener('hidden.bs.modal', function() {
         this.remove();
     });
+};
+
+// Função para salvar as edições do personagem
+window.saveCharacterEdit = function(index) {
+    const form = document.getElementById(`editCharacterForm${index}`);
+    const characters = JSON.parse(localStorage.getItem('characters') || '[]');
+    
+    // Atualiza os dados do personagem
+    characters[index] = {
+        ...characters[index],
+        nome: form.nome.value,
+        raca: form.raca.value,
+        classe: form.classe.value.toLowerCase(),
+        idade: parseInt(form.idade.value),
+        genero: form.genero.value,
+        altura: parseInt(form.altura.value),
+        peso: parseInt(form.peso.value),
+        atributos: {
+            forca: parseInt(form.forca.value),
+            destreza: parseInt(form.destreza.value),
+            constituicao: parseInt(form.constituicao.value),
+            inteligencia: parseInt(form.inteligencia.value),
+            sabedoria: parseInt(form.sabedoria.value),
+            carisma: parseInt(form.carisma.value)
+        },
+        combate: {
+            pontosVida: parseInt(form.pontosVida.value),
+            pontosMana: parseInt(form.pontosMana.value),
+            defesa: parseInt(form.defesa.value),
+            iniciativa: parseInt(form.iniciativa.value)
+        },
+        historia: {
+            background: form.background.value,
+            alinhamento: form.alinhamento.value,
+            motivacao: form.motivacao.value,
+            fraquezas: form.fraquezas.value
+        }
+    };
+
+    // Salva no localStorage
+    localStorage.setItem('characters', JSON.stringify(characters));
+
+    // Fecha o modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById(`characterModal${index}`));
+    modal.hide();
+
+    // Mostra mensagem de sucesso
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-success alert-dismissible fade show';
+    alertDiv.role = 'alert';
+    alertDiv.innerHTML = `
+        <strong>Sucesso!</strong> Personagem atualizado com sucesso.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+    document.querySelector('.main-container').insertAdjacentElement('afterbegin', alertDiv);
+
+    // Recarrega a lista de personagens
+    loadCharacters();
+
+    // Remove a mensagem após 3 segundos
+    setTimeout(() => alertDiv.remove(), 3000);
 };
 
 // Carrega os personagens quando a página é carregada

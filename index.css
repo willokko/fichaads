@@ -233,3 +233,70 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Estilos para o formulário de edição no modal */
+.character-edit-form .form-label {
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.character-edit-form .form-control,
+.character-edit-form .form-select {
+    border: 1px solid #dce4ec;
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.character-edit-form .form-control:focus,
+.character-edit-form .form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.character-edit-form textarea.form-control {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.character-edit-form .card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.character-edit-form .card-header {
+    padding: 0.75rem 1rem;
+}
+
+.character-edit-form .card-body {
+    padding: 1.25rem;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modal-footer {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 1rem;
+}
+
+/* Responsividade para o modal */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+    
+    .character-edit-form .card {
+        margin-bottom: 1rem;
+    }
+}
