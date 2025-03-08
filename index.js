@@ -136,7 +136,7 @@ window.viewCharacterDetails = function(index) {
                         <h5 class="modal-title">${char.nome || 'Sem nome'}</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="modal-body bg-light">
+                    <div class="modal-body">
                         <form id="editCharacterForm${index}" class="character-edit-form">
                             <div class="row g-4">
                                 <div class="col-md-6">
