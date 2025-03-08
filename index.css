@@ -112,6 +112,17 @@ body {
     padding: 0.8rem;
     border-radius: 4px;
     color: #ecf0f1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.attribute:hover {
+    background-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
+.attribute:active {
+    transform: translateY(0);
 }
 
 .attribute-label {
@@ -360,4 +371,86 @@ body {
     background-color: rgba(46, 204, 113, 0.2);
     border-color: rgba(46, 204, 113, 0.3);
     color: #2ecc71;
+}
+
+/* Sistema de Toast para Rolagem de Dados */
+.dice-toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1060;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.dice-toast {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 300px;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.dice-toast.show {
+    transform: translateX(0);
+}
+
+.dice-toast .dice-icon {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+.dice-toast .dice-content {
+    flex: 1;
+}
+
+.dice-toast .dice-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dice-toast .dice-result {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.dice-toast .dice-total {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2ecc71;
+}
+
+.dice-toast .dice-details {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+.dice-toast .dice-modifier {
+    color: #e74c3c;
+}
+
+/* Animação para o dado */
+@keyframes rollDice {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.dice-toast .rolling {
+    animation: rollDice 0.5s ease;
 }

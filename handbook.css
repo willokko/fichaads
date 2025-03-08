@@ -109,6 +109,92 @@
     border-radius: 50%;
 }
 
+/* Estilos para a seção de atributos */
+.info-box {
+    background: rgba(44, 62, 80, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    color: #ecf0f1;
+}
+
+.info-box h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.info-box h4 {
+    color: #e74c3c;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.2rem;
+}
+
+.bonus-table {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    background: rgba(52, 73, 94, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.table th {
+    background: rgba(0, 0, 0, 0.2);
+    color: #3498db;
+    font-weight: 600;
+}
+
+.table td {
+    color: #ecf0f1;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    border-color: rgba(255,255,255,0.1);
+}
+
+.table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.example-calculation {
+    background: rgba(52, 73, 94, 0.5);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    border-left: 4px solid #e74c3c;
+}
+
+.example-box {
+    background: rgba(52, 73, 94, 0.3);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+}
+
+.example-box ol {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+}
+
+.example-box li {
+    margin-bottom: 0.5rem;
+    color: #ecf0f1;
+}
+
+code {
+    background: rgba(0,0,0,0.2);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: #e74c3c;
+    font-family: 'Courier New', monospace;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .attribute-explanation {
@@ -116,6 +202,18 @@
     }
     
     .manual-section {
+        padding: 1rem;
+    }
+    
+    .bonus-table {
+        margin: 1rem -1rem;
+    }
+    
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    .info-box {
         padding: 1rem;
     }
 } 
