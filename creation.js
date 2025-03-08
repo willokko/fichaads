@@ -9,11 +9,6 @@ class CharacterCreation {
         if (form) {
             form.addEventListener('submit', (e) => this.handleFormSubmit(e));
         }
-
-        // Atualiza preview do personagem em tempo real
-        document.querySelectorAll('.character-input').forEach(input => {
-            input.addEventListener('input', () => this.updateCharacterPreview());
-        });
     }
 
     handleFormSubmit(e) {
@@ -51,37 +46,17 @@ class CharacterCreation {
             dataCriacao: new Date().toISOString()
         };
 
-        console.log('Salvando personagem:', character);
         this.saveCharacter(character);
         this.showSuccessMessage('Personagem criado com sucesso!');
-        this.resetForm();
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1500);
     }
 
     saveCharacter(character) {
-        // Recupera personagens existentes ou inicia array vazio
         let characters = JSON.parse(localStorage.getItem('characters') || '[]');
         characters.push(character);
         localStorage.setItem('characters', JSON.stringify(characters));
-        console.log('Personagens salvos:', characters);
-    }
-
-    updateCharacterPreview() {
-        const previewElement = document.getElementById('characterPreview');
-        if (!previewElement) return;
-
-        const nome = document.getElementById('charName').value;
-        const raca = document.getElementById('charRace').value;
-        const classe = document.getElementById('charClass').value;
-
-        previewElement.innerHTML = `
-            <div class="preview-card">
-                <h3>Preview do Personagem</h3>
-                <p><strong>Nome:</strong> ${nome || 'Indefinido'}</p>
-                <p><strong>Raça:</strong> ${raca || 'Indefinido'}</p>
-                <p><strong>Classe:</strong> ${classe || 'Indefinido'}</p>
-                <p><strong>Nível:</strong> 1</p>
-            </div>
-        `;
     }
 
     showSuccessMessage(message) {
@@ -92,53 +67,13 @@ class CharacterCreation {
 
         const form = document.getElementById('characterForm');
         form.insertAdjacentElement('beforebegin', alertDiv);
-
-        setTimeout(() => alertDiv.remove(), 3000);
-    }
-
-    resetForm() {
-        document.getElementById('characterForm').reset();
-        this.updateCharacterPreview();
     }
 }
 
 // Inicializa a criação de personagem quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
     new CharacterCreation();
-    loadCharacters(); // Carrega personagens salvos ao iniciar
 });
 
-// Função para carregar personagens salvos
-function loadCharacters() {
-    const characters = JSON.parse(localStorage.getItem('characters') || '[]');
-    const charactersList = document.getElementById('charactersList');
-    
-    if (!charactersList) return;
-
-    charactersList.innerHTML = characters.map(char => `
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">${char.nome}</h5>
-                <p class="card-text">
-                    <strong>Raça:</strong> ${char.raca}<br>
-                    <strong>Classe:</strong> ${char.classe}<br>
-                    <strong>Nível:</strong> ${char.nivel}
-                </p>
-                <div class="attributes-summary">
-                    <p><strong>Atributos:</strong></p>
-                    <ul>
-                        <li>FOR: ${char.atributos.forca}</li>
-                        <li>DES: ${char.atributos.destreza}</li>
-                        <li>CON: ${char.atributos.constituicao}</li>
-                        <li>INT: ${char.atributos.inteligencia}</li>
-                        <li>SAB: ${char.atributos.sabedoria}</li>
-                        <li>CAR: ${char.atributos.carisma}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Exporta as funções necessárias
-export { CharacterCreation, loadCharacters };
+// Exporta a classe
+export { CharacterCreation };

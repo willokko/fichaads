@@ -1,51 +1,73 @@
 @import url('cores.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 /* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Estilização geral */
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
+    min-height: 100vh;
 }
 
 /* Navegação */
 .main-nav {
-    background-color: #2c3e50;
+    background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
     padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1000;
 }
 
 .nav-list {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .nav-item {
-    margin: 0 1rem;
+    margin: 0;
 }
 
 .nav-link {
-    color: white;
+    color: rgba(255,255,255,0.9);
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
-    background-color: #34495e;
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+    text-decoration: none;
 }
 
 .nav-link.active {
-    background-color: #3498db;
+    background-color: rgba(255,255,255,0.15);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Container principal */

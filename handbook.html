@@ -4,25 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manual - RPG Character Creator</title>
-    <link rel="stylesheet" href="index.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Linkando arquivos -->
+    <link rel="stylesheet" href="handbook.css">
 </head>
 <body>
     <nav class="main-nav">
         <ul class="nav-list">
-            <li class="nav-item"><a href="index.html" class="nav-link">Tela Inicial</a></li>
-            <li class="nav-item"><a href="creation.html" class="nav-link">Criar Personagem</a></li>
-            <li class="nav-item"><a href="handbook.html" class="nav-link active">Manual</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Tela Inicial</a></li>
+            <li class="nav-item"><a href="creation.html" class="nav-link"><i class="fas fa-plus-circle"></i> Criar Personagem</a></li>
+            <li class="nav-item"><a href="handbook.html" class="nav-link active"><i class="fas fa-book"></i> Manual</a></li>
         </ul>
     </nav>
 
     <main class="main-container">
-        <header class="header">
+        <header class="header text-center mb-4">
             <h1 class="title">Manual do Usuário</h1>
         </header>
 
-        <!-- Aqui virá o conteúdo do manual -->
+        <div class="manual-content">
+            <!-- Introdução -->
+            <section class="manual-section">
+                <h2><i class="fas fa-scroll"></i> Introdução</h2>
+                <p>Bem-vindo ao RPG Character Creator! Este manual irá guiá-lo através de todas as funcionalidades do nosso criador de personagens.</p>
+                
+                <div class="tip-box">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Dica:</strong> Leia este manual antes de criar seu primeiro personagem para entender melhor todas as opções disponíveis.</p>
+                </div>
+            </section>
+
+            <!-- Criação de Personagem -->
+            <section class="manual-section">
+                <h2><i class="fas fa-user-plus"></i> Criação de Personagem</h2>
+                
+                <h3>Informações Básicas</h3>
+                <p>Ao criar um personagem, comece preenchendo as informações básicas:</p>
+                <ul>
+                    <li><strong>Nome:</strong> Escolha um nome apropriado para seu personagem</li>
+                    <li><strong>Raça:</strong> Selecione entre Humano, Elfo, Anão ou Orc</li>
+                    <li><strong>Classe:</strong> Escolha entre Guerreiro, Mago ou Ladino</li>
+                </ul>
+
+                <div class="example-box">
+                    <p><i class="fas fa-info-circle"></i> <strong>Exemplo:</strong> Um guerreiro anão chamado "Thorin" seria uma combinação clássica para iniciantes.</p>
+                </div>
+            </section>
+
+            <!-- Atributos -->
+            <section class="manual-section">
+                <h2><i class="fas fa-dice-d20"></i> Atributos</h2>
+                
+                <div class="attribute-explanation">
+                    <div class="attribute-card">
+                        <div class="attribute-icon">💪</div>
+                        <div>
+                            <h3>Força</h3>
+                            <p>Determina o poder físico e capacidade de carregar peso</p>
+                        </div>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="attribute-icon">🏹</div>
+                        <div>
+                            <h3>Destreza</h3>
+                            <p>Afeta a agilidade e precisão</p>
+                        </div>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="attribute-icon">❤️</div>
+                        <div>
+                            <h3>Constituição</h3>
+                            <p>Define a saúde e resistência física</p>
+                        </div>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="attribute-icon">📚</div>
+                        <div>
+                            <h3>Inteligência</h3>
+                            <p>Representa o conhecimento e raciocínio</p>
+                        </div>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="attribute-icon">🧘‍♂️</div>
+                        <div>
+                            <h3>Sabedoria</h3>
+                            <p>Indica a intuição e percepção</p>
+                        </div>
+                    </div>
+                    <div class="attribute-card">
+                        <div class="attribute-icon">🗣️</div>
+                        <div>
+                            <h3>Carisma</h3>
+                            <p>Determina a força de personalidade</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Atenção:</strong> Os atributos devem estar entre 1 e 20, sendo 10 o valor médio para um personagem comum.</p>
+                </div>
+            </section>
+
+            <!-- Combate -->
+            <section class="manual-section">
+                <h2><i class="fas fa-sword"></i> Sistema de Combate</h2>
+                
+                <h3>Estatísticas de Combate</h3>
+                <ul>
+                    <li><strong>Pontos de Vida (PV):</strong> Quantidade de dano que seu personagem pode suportar</li>
+                    <li><strong>Pontos de Mana (PM):</strong> Energia mágica para conjurar feitiços</li>
+                    <li><strong>Defesa:</strong> Capacidade de evitar danos</li>
+                    <li><strong>Iniciativa:</strong> Determina a ordem de ação em combate</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p><i class="fas fa-shield-alt"></i> <strong>Dica de Combate:</strong> Balanceie bem seus pontos entre ataque e defesa para criar um personagem mais versátil.</p>
+                </div>
+            </section>
+
+            <!-- História -->
+            <section class="manual-section">
+                <h2><i class="fas fa-book-open"></i> Desenvolvimento da História</h2>
+                
+                <h3>Elementos Narrativos</h3>
+                <p>Uma boa história de personagem inclui:</p>
+                <ul>
+                    <li>Background detalhado</li>
+                    <li>Motivações claras</li>
+                    <li>Objetivos definidos</li>
+                    <li>Fraquezas e medos</li>
+                </ul>
+
+                <div class="example-box">
+                    <p><i class="fas fa-quote-right"></i> <strong>Exemplo de Background:</strong> "Um jovem mago que perdeu sua família para um dragão e agora busca conhecimento mágico para se vingar."</p>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <script src="script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
